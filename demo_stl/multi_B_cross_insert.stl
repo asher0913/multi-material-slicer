@@ -1,0 +1,170 @@
+solid multi_B_cross_insert
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex -13.000000 -3.000000 0.000000
+      vertex -13.000000 3.000000 0.000000
+      vertex 13.000000 3.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex -13.000000 -3.000000 0.000000
+      vertex 13.000000 3.000000 0.000000
+      vertex 13.000000 -3.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -13.000000 -3.000000 9.000000
+      vertex 13.000000 -3.000000 9.000000
+      vertex 13.000000 3.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -13.000000 -3.000000 9.000000
+      vertex 13.000000 3.000000 9.000000
+      vertex -13.000000 3.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 -1.00000000 0.00000000
+    outer loop
+      vertex -13.000000 -3.000000 0.000000
+      vertex 13.000000 -3.000000 0.000000
+      vertex 13.000000 -3.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 -1.00000000 0.00000000
+    outer loop
+      vertex -13.000000 -3.000000 0.000000
+      vertex 13.000000 -3.000000 9.000000
+      vertex -13.000000 -3.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 1.00000000 0.00000000
+    outer loop
+      vertex -13.000000 3.000000 0.000000
+      vertex -13.000000 3.000000 9.000000
+      vertex 13.000000 3.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 1.00000000 0.00000000
+    outer loop
+      vertex -13.000000 3.000000 0.000000
+      vertex 13.000000 3.000000 9.000000
+      vertex 13.000000 3.000000 0.000000
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex -13.000000 -3.000000 0.000000
+      vertex -13.000000 -3.000000 9.000000
+      vertex -13.000000 3.000000 9.000000
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex -13.000000 -3.000000 0.000000
+      vertex -13.000000 3.000000 9.000000
+      vertex -13.000000 3.000000 0.000000
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 13.000000 -3.000000 0.000000
+      vertex 13.000000 3.000000 0.000000
+      vertex 13.000000 3.000000 9.000000
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 13.000000 -3.000000 0.000000
+      vertex 13.000000 3.000000 9.000000
+      vertex 13.000000 -3.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex -3.000000 -9.000000 0.000000
+      vertex -3.000000 9.000000 0.000000
+      vertex 3.000000 9.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 -1.00000000
+    outer loop
+      vertex -3.000000 -9.000000 0.000000
+      vertex 3.000000 9.000000 0.000000
+      vertex 3.000000 -9.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -3.000000 -9.000000 9.000000
+      vertex 3.000000 -9.000000 9.000000
+      vertex 3.000000 9.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -3.000000 -9.000000 9.000000
+      vertex 3.000000 9.000000 9.000000
+      vertex -3.000000 9.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 -1.00000000 0.00000000
+    outer loop
+      vertex -3.000000 -9.000000 0.000000
+      vertex 3.000000 -9.000000 0.000000
+      vertex 3.000000 -9.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 -1.00000000 0.00000000
+    outer loop
+      vertex -3.000000 -9.000000 0.000000
+      vertex 3.000000 -9.000000 9.000000
+      vertex -3.000000 -9.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 1.00000000 0.00000000
+    outer loop
+      vertex -3.000000 9.000000 0.000000
+      vertex -3.000000 9.000000 9.000000
+      vertex 3.000000 9.000000 9.000000
+    endloop
+  endfacet
+  facet normal 0.00000000 1.00000000 0.00000000
+    outer loop
+      vertex -3.000000 9.000000 0.000000
+      vertex 3.000000 9.000000 9.000000
+      vertex 3.000000 9.000000 0.000000
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex -3.000000 -9.000000 0.000000
+      vertex -3.000000 -9.000000 9.000000
+      vertex -3.000000 9.000000 9.000000
+    endloop
+  endfacet
+  facet normal -1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex -3.000000 -9.000000 0.000000
+      vertex -3.000000 9.000000 9.000000
+      vertex -3.000000 9.000000 0.000000
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 3.000000 -9.000000 0.000000
+      vertex 3.000000 9.000000 0.000000
+      vertex 3.000000 9.000000 9.000000
+    endloop
+  endfacet
+  facet normal 1.00000000 0.00000000 0.00000000
+    outer loop
+      vertex 3.000000 -9.000000 0.000000
+      vertex 3.000000 9.000000 9.000000
+      vertex 3.000000 -9.000000 9.000000
+    endloop
+  endfacet
+endsolid multi_B_cross_insert

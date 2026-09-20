@@ -1,0 +1,50 @@
+# 机器与材料预设库（App 启动时自动读取本文件）
+#
+# 格式说明：采用与 `配置参数示例.txt` 一致的轻量缩进格式（key: value，列表用逗号分隔），
+# 由内置 PresetLoader 解析，无需第三方 YAML 库。对方后续提供的正式 YAML 字段可在此追加。
+#
+# 机器：device_name_list 列出机器名，每台机器一个同名块。
+# 材料：material_name_list 列出材料名，每个材料一个同名块；color 可选（不写则用默认色表）。
+
+device_name_list: M2-001, M2-002
+
+M2-001:
+    projector_width: 3840
+    projector_height: 2160
+    pixel_width: 0.05
+    pixel_height: 0.05
+    current_map: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 30, 40, 50, 60, 70, 80, 90, 100
+    strength_map: 0.3, 2.4, 3.6, 4.9, 6.1, 7.2, 8.4, 9.5, 10.6, 11.8, 12.1, 22.0, 31.1, 39.6, 47.5, 54.8, 61.5, 67.6, 73.2
+    material_num_limit: 16
+
+M2-002:
+    projector_width: 3840
+    projector_height: 2160
+    pixel_width: 0.05
+    pixel_height: 0.05
+    current_map: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 30, 40, 50, 60, 70, 80, 90, 100
+    strength_map: 0.3, 2.4, 3.6, 4.9, 6.1, 7.2, 8.4, 9.5, 10.6, 11.8, 12.1, 22.0, 31.1, 39.6, 47.5, 54.8, 61.5, 67.6, 73.2
+    material_num_limit: 16
+
+material_name_list: hard1, soft1, tough1
+
+hard1:
+    color: "#2ca0dc"
+    bottom_exposure_time: 7.0
+    bottom_exposure_current: 15
+    standard_exposure_time: 2.5
+    standard_exposure_current: 15
+
+soft1:
+    color: "#e24e74"
+    bottom_exposure_time: 7.0
+    bottom_exposure_current: 15
+    standard_exposure_time: 2.5
+    standard_exposure_current: 15
+
+tough1:
+    color: "#ecaa3a"
+    bottom_exposure_time: 8.0
+    bottom_exposure_current: 16
+    standard_exposure_time: 3.0
+    standard_exposure_current: 16

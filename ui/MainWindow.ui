@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1320</width>
+    <height>860</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>900</width>
+    <height>560</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Multi Material Slicer</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QSplitter" name="mainSplitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="OpenGLView" name="glView">
+       <property name="minimumSize">
+        <size>
+         <width>480</width>
+         <height>360</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QWidget" name="sidePanel">
+       <property name="minimumSize">
+        <size>
+         <width>380</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>500</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <layout class="QVBoxLayout" name="sideLayout">
+        <property name="spacing">
+         <number>8</number>
+        </property>
+        <property name="leftMargin">
+         <number>4</number>
+        </property>
+        <property name="topMargin">
+         <number>4</number>
+        </property>
+        <property name="rightMargin">
+         <number>4</number>
+        </property>
+        <property name="bottomMargin">
+         <number>4</number>
+        </property>
+        <item>
+         <widget class="QTabWidget" name="tabWidget">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="modelTab">
+           <attribute name="title">
+            <string>模型</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="modelTabLayout">
+            <property name="leftMargin"><number>0</number></property>
+            <property name="topMargin"><number>0</number></property>
+            <property name="rightMargin"><number>0</number></property>
+            <property name="bottomMargin"><number>0</number></property>
+            <item>
+             <widget class="QScrollArea" name="modelScroll">
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <widget class="QWidget" name="modelScrollContent">
+               <layout class="QVBoxLayout" name="modelContentLayout">
+                <property name="spacing"><number>8</number></property>
+                <item>
+                 <layout class="QHBoxLayout" name="modelButtonLayout">
+                  <item>
+                   <widget class="QPushButton" name="importButton">
+                    <property name="text">
+                     <string>导入 STL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="importStepButton">
+                    <property name="text">
+                     <string>导入 STEP</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="copyButton">
+                    <property name="text">
+                     <string>复制</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="removeButton">
+                    <property name="text">
+                     <string>移除</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QTreeWidget" name="modelList">
+                  <property name="minimumHeight">
+                   <number>150</number>
+                  </property>
+                  <column>
+                   <property name="text">
+                    <string>名称</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>材料</string>
+                   </property>
+                  </column>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="transformGroup">
+                  <property name="title">
+                   <string>变换</string>
+                  </property>
+                  <layout class="QFormLayout" name="transformLayout">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="materialLabel">
+                     <property name="text">
+                      <string>材料</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QComboBox" name="materialCombo"/>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="posXLabel">
+                     <property name="text">
+                      <string>X mm</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QDoubleSpinBox" name="posXSpin">
+                     <property name="decimals"><number>3</number></property>
+                     <property name="minimum"><double>-500.000000000000000</double></property>
+                     <property name="maximum"><double>500.000000000000000</double></property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="posYLabel">
+                     <property name="text">
+                      <string>Y mm</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QDoubleSpinBox" name="posYSpin">
+                     <property name="decimals"><number>3</number></property>
+                     <property name="minimum"><double>-500.000000000000000</double></property>
+                     <property name="maximum"><double>500.000000000000000</double></property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="posZLabel">
+                     <property name="text">
+                      <string>Z mm</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QDoubleSpinBox" name="posZSpin">
+                     <property name="decimals"><number>3</number></property>
+                     <property name="minimum"><double>-500.000000000000000</double></property>
+                     <property name="maximum"><double>500.000000000000000</double></property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="rotXLabel">
+                     <property name="text">
+                      <string>旋转 X</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QDoubleSpinBox" name="rotXSpin">
+                     <property name="decimals"><number>2</number></property>
+                     <property name="minimum"><double>-360.000000000000000</double></property>
+                     <property name="maximum"><double>360.000000000000000</double></property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="rotYLabel">
+                     <property name="text">
+                      <string>旋转 Y</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QDoubleSpinBox" name="rotYSpin">
+                     <property name="decimals"><number>2</number></property>
+                     <property name="minimum"><double>-360.000000000000000</double></property>
+                     <property name="maximum"><double>360.000000000000000</double></property>
+                    </widget>
+                   </item>
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="rotZLabel">
+                     <property name="text">
+                      <string>旋转 Z</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QDoubleSpinBox" name="rotZSpin">
+                     <property name="decimals"><number>2</number></property>
+                     <property name="minimum"><double>-360.000000000000000</double></property>
+                     <property name="maximum"><double>360.000000000000000</double></property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="scaleLabel">
+                     <property name="text">
+                      <string>等比缩放</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1">
+                    <widget class="QDoubleSpinBox" name="scaleSpin">
+                     <property name="decimals"><number>4</number></property>
+                     <property name="minimum"><double>0.001000000000000</double></property>
+                     <property name="maximum"><double>100.000000000000000</double></property>
+                     <property name="singleStep"><double>0.100000000000000</double></property>
+                     <property name="value"><double>1.000000000000000</double></property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="modelSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="sliceTab">
+           <attribute name="title">
+            <string>切片</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="sliceTabLayout">
+            <property name="leftMargin"><number>0</number></property>
+            <property name="topMargin"><number>0</number></property>
+            <property name="rightMargin"><number>0</number></property>
+            <property name="bottomMargin"><number>0</number></property>
+            <property name="spacing"><number>6</number></property>
+            <item>
+             <widget class="QScrollArea" name="sliceScroll">
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <widget class="QWidget" name="sliceScrollContent">
+               <layout class="QVBoxLayout" name="sliceContentLayout">
+               <property name="spacing"><number>8</number></property>
+                <item>
+                 <widget class="QGroupBox" name="printSettingsGroup">
+                  <property name="title">
+                   <string>打印设置</string>
+                  </property>
+                  <layout class="QFormLayout" name="printSettingsLayout">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="machineLabel">
+                     <property name="text">
+                      <string>机器</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QComboBox" name="machineCombo"/>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="materialCountLabel">
+                     <property name="text">
+                      <string>材料数量</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QSpinBox" name="materialCountSpin">
+                     <property name="minimum"><number>1</number></property>
+                     <property name="maximum"><number>99</number></property>
+                     <property name="value"><number>3</number></property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="widthLabel">
+                     <property name="text">
+                      <string>宽度 px</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QSpinBox" name="projectorWidthSpin">
+                     <property name="maximum"><number>20000</number></property>
+                     <property name="value"><number>3840</number></property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="heightLabel">
+                     <property name="text">
+                      <string>高度 px</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QSpinBox" name="projectorHeightSpin">
+                     <property name="maximum"><number>20000</number></property>
+                     <property name="value"><number>2160</number></property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="pixelSizeLabel">
+                     <property name="text">
+                      <string>像素 mm</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QDoubleSpinBox" name="pixelSizeSpin">
+                     <property name="decimals"><number>4</number></property>
+                     <property name="minimum"><double>0.001000000000000</double></property>
+                     <property name="maximum"><double>1.000000000000000</double></property>
+                     <property name="value"><double>0.050000000000000</double></property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="layerHeightLabel">
+                     <property name="text">
+                      <string>层高 mm</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QDoubleSpinBox" name="layerHeightSpin">
+                     <property name="decimals"><number>4</number></property>
+                     <property name="minimum"><double>0.001000000000000</double></property>
+                     <property name="maximum"><double>1.000000000000000</double></property>
+                     <property name="value"><double>0.050000000000000</double></property>
+                    </widget>
+                   </item>
+                 </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="pathsGroup">
+                  <property name="title">
+                   <string>输出</string>
+                  </property>
+                  <layout class="QGridLayout" name="pathsLayout">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="outputPathLabel">
+                     <property name="text">
+                      <string>输出目录</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="outputPathEdit"/>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QPushButton" name="browseOutputButton">
+                     <property name="text">
+                      <string>...</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0" colspan="3">
+                    <widget class="QPushButton" name="importConfigButton">
+                     <property name="text">
+                      <string>导入 config.yaml</string>
+                     </property>
+                     <property name="toolTip">
+                      <string>从手动编辑的 config.yaml 读取打印、曝光、常规和高级参数</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="advancedGroup">
+                  <property name="title">
+                   <string>常规选项</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="advancedLayout">
+                   <item>
+                    <widget class="QWidget" name="advancedContent" native="true">
+                     <layout class="QGridLayout" name="advancedGrid">
+                      <property name="leftMargin"><number>0</number></property>
+                      <property name="topMargin"><number>0</number></property>
+                      <property name="rightMargin"><number>0</number></property>
+                      <property name="bottomMargin"><number>0</number></property>
+                      <item row="0" column="0">
+                       <widget class="QCheckBox" name="grooveCheck">
+                        <property name="text">
+                         <string>挡板 (groove)</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QCheckBox" name="slide0Check">
+                        <property name="text">
+                         <string>刮板1 (slide_0)</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QCheckBox" name="slide1Check">
+                        <property name="text">
+                         <string>刮板2 (slide_1)</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QCheckBox" name="slide2Check">
+                        <property name="text">
+                         <string>刮板3 (slide_2)</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="advancedParamsGroup">
+                  <property name="title">
+                   <string>高级选项</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="advancedParamsLayout">
+                   <item>
+                    <widget class="QTableWidget" name="advancedParamTable">
+                     <property name="minimumHeight">
+                      <number>260</number>
+                     </property>
+                     <property name="editTriggers">
+                      <set>QAbstractItemView::AllEditTriggers</set>
+                     </property>
+                     <property name="selectionBehavior">
+                      <enum>QAbstractItemView::SelectRows</enum>
+                     </property>
+                    </widget>
+                   </item>
+                 </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="exposureGroup">
+                  <property name="title">
+                   <string>曝光参数（每材料）</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="exposureLayout">
+                   <item>
+                    <layout class="QHBoxLayout" name="bottomLayersRow">
+                     <item>
+                      <widget class="QLabel" name="bottomLayersLabel">
+                       <property name="text">
+                        <string>底层层数</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QSpinBox" name="bottomLayersSpin">
+                       <property name="maximum"><number>500</number></property>
+                       <property name="value"><number>3</number></property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <widget class="QTableWidget" name="materialTable">
+                     <property name="minimumHeight">
+                      <number>110</number>
+                     </property>
+                     <property name="editTriggers">
+                      <set>QAbstractItemView::AllEditTriggers</set>
+                     </property>
+                     <property name="selectionMode">
+                      <enum>QAbstractItemView::NoSelection</enum>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="sliceSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="workflowButtonLayout">
+              <item>
+               <widget class="QPushButton" name="runWorkflowButton">
+                <property name="minimumHeight">
+                 <number>44</number>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="toolTip">
+                 <string>按材料切片导出 PNG，生成 config.yaml，并调用后端工具合并出投影图与 run.gcode</string>
+                </property>
+                <property name="text">
+                 <string>导出切片并生成 GCode</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="cancelWorkflowButton">
+                <property name="minimumHeight">
+                 <number>44</number>
+                </property>
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>取消</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QProgressBar" name="workflowProgressBar">
+              <property name="minimum">
+               <number>0</number>
+              </property>
+              <property name="maximum">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>0</number>
+              </property>
+              <property name="textVisible">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="logEdit">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+              <property name="minimumHeight">
+               <number>120</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1320</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>OpenGLView</class>
+   <extends>QOpenGLWidget</extends>
+   <header>OpenGLView.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

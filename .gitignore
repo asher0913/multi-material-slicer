@@ -1,0 +1,91 @@
+# Build output
+build/
+build-*/
+cmake-build-*/
+build-*-release/
+build-*-debug/
+dist/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+install_manifest.txt
+Makefile
+*.cmake.stamp
+
+# Qt generated files
+*_autogen/
+ui_*.h
+moc_*.cpp
+qrc_*.cpp
+*.qm
+*.qrc.depends
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.venv/
+venv/
+env/
+
+# PyInstaller / backend packaging output
+backend_build/
+backend_dist/
+*.spec
+
+# Packaged applications and release archives
+*.app/
+*.dSYM/
+*.zip
+*.7z
+*.tar.gz
+*.tgz
+
+# Generated/demo output folders
+切片示例/
+
+# Native compiler / linker output
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.exp
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.orig
+
+# macOS / iCloud
+.DS_Store
+._*
+*.icloud
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE
+.idea/
+.vscode/
+*.user
+*.user.*
