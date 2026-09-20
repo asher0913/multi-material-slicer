@@ -5,7 +5,11 @@ printing jobs. It imports STL models and STEP assemblies, previews and transform
 parts in OpenGL, assigns materials per model or assembly leaf, exports binary
 slice masks, and produces a merged image sequence with machine-oriented G-code.
 
-![System architecture](docs/architecture.svg)
+![Multi-Material Resin Slicer running in the Linux CI smoke test](docs/app-preview.png)
+
+The screenshot above is captured from the same Ubuntu CI build that runs the
+end-to-end application self-test; both generated STL fixtures are loaded in the
+OpenGL scene rather than mocked for documentation.
 
 ## Why this project
 
@@ -40,6 +44,8 @@ The application combines four engineering concerns in one reproducible system:
   configuration generation, image merging, and G-code output.
 
 ## Architecture
+
+![System architecture](docs/architecture.svg)
 
 ```text
 STL / STEP input
