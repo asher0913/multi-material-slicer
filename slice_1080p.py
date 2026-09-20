@@ -9,7 +9,6 @@ import cv2
 import numpy as np
 import yaml
 
-
 DEFAULT_RES_WIDTH = 1920
 DEFAULT_RES_HEIGHT = 1080
 

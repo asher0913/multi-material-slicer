@@ -4,7 +4,6 @@ from __future__ import annotations
 import math
 from pathlib import Path
 
-
 Vec3 = tuple[float, float, float]
 Tri = tuple[Vec3, Vec3, Vec3]
 
