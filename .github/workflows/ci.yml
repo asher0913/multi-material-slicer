@@ -48,7 +48,8 @@ jobs:
                 demo_stl/multi_B_cross_insert.stl &
               app_pid=$!
               sleep 5
-              scrot -u app-preview.png
+              scrot app-preview.png
+              test -s app-preview.png
               kill "$app_pid"
               wait "$app_pid" || true
             '
