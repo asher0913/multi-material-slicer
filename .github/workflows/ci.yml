@@ -65,3 +65,10 @@ jobs:
             ./build/MultiMaterialSlicer --selftest \
             demo_stl/multi_A_base_plate.stl \
             demo_stl/multi_B_cross_insert.stl
+      - name: Upload self-test output (masks, merged layers, run.gcode)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selftest-output
+          path: /tmp/mms_selftest_out/
+          if-no-files-found: warn

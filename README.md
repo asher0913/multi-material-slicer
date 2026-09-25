@@ -11,6 +11,22 @@ The screenshot above is captured from the same Ubuntu CI build that runs the
 end-to-end application self-test; both generated STL fixtures are loaded in the
 OpenGL scene rather than mocked for documentation.
 
+## Quick start
+
+The slicing backend and its tests run anywhere with Python 3.10+:
+
+```bash
+git clone https://github.com/asher0913/multi-material-slicer && cd multi-material-slicer
+python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements-dev.txt
+python -m unittest discover -s tests -v
+```
+
+These tests cover image normalisation, configuration, the tank planner and a full run to merged
+images plus `run.gcode`. The desktop app needs Qt and CMake; see
+[Build from source](#build-from-source). CI builds it on Ubuntu, runs the headless `--selftest` on
+two demo models and uploads what the self-test produced (per-material masks, merged layers and
+`run.gcode`) as the `selftest-output` artifact of each run.
+
 ## Why this project
 
 Conventional resin slicers assume one material for the entire build. This
@@ -161,6 +177,31 @@ python -m pip install -r requirements-dev.txt
 ruff check slice_1080p.py tools tests
 python -m unittest discover -s tests -v
 ```
+
+### What CI does and does not cover
+
+| Behaviour | Checked in CI? |
+|---|---|
+| Backend: normalisation, config expansion, tank planning, G-code generation | Yes: unit tests |
+| Full C++/Qt build on Ubuntu | Yes |
+| STL import → OpenGL scene → per-material masks → merge → `run.gcode` | Yes: `--selftest` under Xvfb, with the output uploaded as an artifact |
+| UI screenshot in this README | Yes: captured from the same CI build |
+| STEP/OpenCascade conversion | No: CadQuery/OCP makes the CI image too large. Run `tools/step_to_stl_parts.py` locally. |
+| macOS and Windows packaging | No: run the scripts under `scripts/` on each platform |
+| Behaviour on a real printer | No: G-code must be validated on the target machine |
+
+## Code map
+
+| File | What to look at |
+|---|---|
+| `src/StlMesh.cpp` | ASCII and binary STL parsing with size, triangle-count and NaN/Inf validation before allocation |
+| `src/OpenGLView.cpp` | VBO renderer, build plate and orbit camera |
+| `src/SliceExporter.cpp` | cuts each layer plane through the meshes into segments, then scanline-fills them into per-material PNG masks (`rasterizeSegments`) |
+| `src/SliceWorker.cpp` | background export thread with progress, cancellation and the backend timeout |
+| `src/MainWindow.cpp` | assembly tree, material assignment, the `--selftest` path |
+| `src/ConfigWriter.cpp`, `src/PresetLoader.cpp` | job configuration and validated machine presets |
+| `slice_1080p.py` | `SliceMerger`: `_plan_tank_path` (dynamic programming over layers × tanks that minimises tank changes, O(L·M²)), `_write_job` (merged images and G-code) |
+| `tools/step_to_stl_parts.py` | STEP assembly → per-part STL plus a JSON manifest of assembly paths |
 
 ## Packaging
 
